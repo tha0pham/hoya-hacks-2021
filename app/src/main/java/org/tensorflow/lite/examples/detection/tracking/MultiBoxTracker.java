@@ -143,14 +143,60 @@ public class MultiBoxTracker {
       float cornerSize = Math.min(trackedPos.width(), trackedPos.height()) / 8.0f;
       canvas.drawRoundRect(trackedPos, cornerSize, cornerSize, boxPaint);
 
-      final String labelString =
-          !TextUtils.isEmpty(recognition.title)
-              ? String.format("%s %.2f", recognition.title, (100 * recognition.detectionConfidence))
-              : String.format("%.2f", (100 * recognition.detectionConfidence));
+      String labelString;
+      if (recognition.title.equals("person")){
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, "say hi", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else if (recognition.title.equals("tv") || recognition.title.equals("laptop") || recognition.title.equals("mouse") || recognition.title.equals("remote") || recognition.title.equals("keyboard") || recognition.title.equals("cell phone") || recognition.title.equals("microwave") || recognition.title.equals("oven") || recognition.title.equals("toaster") || recognition.title.equals("refrigerator") || recognition.title.equals("hair drier")){
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, " ewaste: donate or recycle", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else if (recognition.title.equals("bicycle") || recognition.title.equals("car") || recognition.title.equals("motorcycle") || recognition.title.equals("airplane") || recognition.title.equals("bus") || recognition.title.equals("train") || recognition.title.equals("truck") || recognition.title.equals("boat") || recognition.title.equals("traffic light") || recognition.title.equals("fire hydrant")){
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, " metal waste-recycle", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else if (recognition.title.equals("bench")) {
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, " wood-recycle", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else if (recognition.title.equals("chair") || recognition.title.equals("couch") || recognition.title.equals("potted plant") || recognition.title.equals("clock") || recognition.title.equals("book") || recognition.title.equals("dining table") || recognition.title.equals("bed") || recognition.title.equals("backpack") || recognition.title.equals("umbrella") || recognition.title.equals("handbag") || recognition.title.equals("tie") || recognition.title.equals("frisbee") || recognition.title.equals("suitcase")) {
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, " recycle or donate", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else if (recognition.title.equals("bottle") || recognition.title.equals("cup") || recognition.title.equals("bowl") || recognition.title.equals("spoon") || recognition.title.equals("fork") |recognition.title.equals("knife")) {
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, " plastic waste or recycle", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else if (recognition.title.equals("apple") || recognition.title.equals("banana") || recognition.title.equals("sandwich") || recognition.title.equals("orange") || recognition.title.equals("brocolli") || recognition.title.equals("carrot") || recognition.title.equals("hot dog") || recognition.title.equals("pizza") || recognition.title.equals("donut") || recognition.title.equals("cake")) {
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %s %.2f", recognition.title, " biodegradable", (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+      else{
+        labelString =
+                !TextUtils.isEmpty(recognition.title)
+                        ? String.format("%s %.2f", recognition.title, (100 * recognition.detectionConfidence))
+                        : String.format("%.2f", (100 * recognition.detectionConfidence));
+      }
+
       //            borderedText.drawText(canvas, trackedPos.left + cornerSize, trackedPos.top,
       // labelString);
       borderedText.drawText(
-          canvas, trackedPos.left + cornerSize, trackedPos.top, labelString + "%", boxPaint);
+              canvas, trackedPos.left + cornerSize, trackedPos.top, labelString + "%", boxPaint);
     }
   }
 
