@@ -52,3 +52,5 @@ We also want to localize content and provide information regarding each state. A
 
 One feature we also started adding but want to elaborate on is our fun fact/tip popup. We currently have a place for tips on our learn more page. However, we want to add a place for fun facts that circulate on our start-up page while the app is loading.
 
+#### Code based on TensorFlow Lite [examples].(https://github.com/tensorflow/examples)
+
