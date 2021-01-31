@@ -1,4 +1,4 @@
-# hoya-hacks-2021-object-detector
+# WasteLess
 
 ## Inspiration
 Waste can be harmful to the environment and all of us living in it, especially if not disposed of correctly. We found that knowing how to dispose of different types of waste and correctly identifying waste is not common knowledge. According to the New York Post, “a new survey of 2,000 Americans revealed that 62 percent worry that a lack of knowledge is causing them to recycle incorrectly. Over half of respondents (53 percent) erroneously believe greasy pizza boxes can be recycled, while 68 percent incorrectly think the same for used plastic utensils.”
